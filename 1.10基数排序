@@ -1,0 +1,29 @@
+def radix(arr):
+    digit = 0
+    max_digit = 1
+    max_value = max(arr)
+  
+    while 10 ** max_digit < max_value:
+        max_digit = max_digit + 1    # 判断出所给数列中数的最大位数（即下面循环执行的次数）
+
+    while digit < max_digit:
+        temp = [[] for i in range(10)]    # 此步及下一循环是将个位数相等的数放到同一个嵌套列表当中，因为个位数有0~9共十个，所以嵌套列表数目为10
+        for i in arr:
+            t = int((i / 10 ** digit) % 10)
+            temp[t].append(i)
+
+        coll = []
+        for bucket in temp:
+        # 此步及下一循环是将空白列表删除并重新组成一个列表，注意第一次完成此步后后，十位数相等的数前后顺序已确定（如：10，22，12，23），在下一步中十位数按大小次序放好
+            for i in bucket:
+                coll.append(i)
+
+        arr = coll
+        digit = digit + 1
+
+    return arr
+arr_list = radix({37,21,54,33,72,15})
+print(arr_list)
+
+# （声明:代码来源于其它网站，注释由c-code-wu批注，仅供学习参考，如若侵权，请联系删除）
+# （Announcement: The codes come from other websites, and the comments are annotated by c-code-wu, which is for learning and reference only. If infringement, please contact to delete）
