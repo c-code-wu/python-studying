@@ -1,0 +1,22 @@
+# def bubble(arr):
+#     digit = len(arr)
+#     i=1
+#     j=1
+#     while j < digit:
+#         while i < digit:
+#             if arr[i] > arr[i - 1]:
+#                 arr[i], arr[i - 1] = arr[i - 1],arr[i]
+#             else:
+#                 i += 1
+#         i = 1
+#         j+=1
+#     return arr
+# 以上代码通过适当修改可以通过c语言编译器实现，但是上述代码中存在大部分重复操作
+def bubbleSort(arr):
+    for i in range(1, len(arr)-1):# 使用冒泡法时计算机需要执行循环的次数为len（arr）-1
+        for j in range(0, len(arr)-i):#第i次比较过程中要进行比较的次数是len（arr）-i
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]#将相邻两个数中的比较大的那个数往后移
+    return arr
+arr_list = bubbleSort(list(map(int,input("输入一些数字：").split())))
+print(arr_list)
