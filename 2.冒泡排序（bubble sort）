@@ -20,3 +20,6 @@ def bubbleSort(arr):
     return arr
 arr_list = bubbleSort(list(map(int,input("输入一些数字：").split())))
 print(arr_list)
+
+# （声明:代码来源于其它网站，注释由c-code-wu批注，仅供学习参考，如若侵权，请联系删除）
+# （Announcement: The codes come from other websites, and the comments are annotated by c-code-wu, which is for learning and reference only. If infringement, please contact to delete）
